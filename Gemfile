@@ -53,4 +53,3 @@ gem 'faraday'
 gem 'jwt'
 
 gem 'active_model_serializers'
-gem 'sprockets-rails'
