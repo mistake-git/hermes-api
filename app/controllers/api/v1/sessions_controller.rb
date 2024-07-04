@@ -10,7 +10,6 @@ class Api::V1::SessionsController < AuthController
     end
   rescue StandardError => e
     pp e
-    pp "########"
     render json: { error: e.message }, status: :internal_server_error
   end
 
