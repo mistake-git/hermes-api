@@ -20,3 +20,4 @@ production:
   password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
   host: <%= ENV['DATABASE_HOST'] %>
+  port: 3306
