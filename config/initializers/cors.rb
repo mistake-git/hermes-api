@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://hermes-lake.vercel.app'
+    origins 'https://hermes-lake.vercel.app', 'localhost:3000'
 
     resource "*",
              headers: :any,
