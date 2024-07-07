@@ -23,8 +23,7 @@ class Api::V1::JobApplicationsController < ApplicationController
       render json: { errors: job_application.errors }, status: :unprocessable_entity
     end
   rescue => e
-    pp "##############"
-    pp e
+    puts e
   end
 
   def update
