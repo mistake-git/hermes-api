@@ -52,7 +52,7 @@ class Api::V1::InterviewsController < ApplicationController
       :interview_address,
       :status,
       :job_application_id,
-      interview_items_attributes: [:name]
+      interview_items_attributes: [ :id, :name]
     )
   end
 end
