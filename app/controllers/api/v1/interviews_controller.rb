@@ -20,6 +20,9 @@ class Api::V1::InterviewsController < ApplicationController
   end
 
   def update
+    if interview_params[:interview_items_attributes].present?
+      @interview.interview_items.destroy_all
+    end
     if @interview.update(interview_params)
       render json: @interview, serializer: InterviewSerializer, status: :ok
     else

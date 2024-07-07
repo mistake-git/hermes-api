@@ -1,3 +1,3 @@
 class InterviewItemSerializer < ActiveModel::Serializer
-  attributes :id, :item
+  attributes :id, :name
 end
