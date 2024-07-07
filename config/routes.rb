@@ -7,6 +7,13 @@ Rails.application.routes.draw do
           get 'search'
         end
       end
+
+      resources :homes, only: [:index] do
+        collection do
+          get 'interviews', to: 'homes#interviews'
+          get 'job_application_todos', to: 'homes#job_application_todos'
+        end
+      end
       resources :job_applications
       resources :interviews
       resources :job_application_todos

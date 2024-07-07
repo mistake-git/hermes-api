@@ -6,8 +6,6 @@ class ApplicationController < ActionController::API
 
   def authenticate_request
     header = request.headers['Authorization']
-    pp header
-    pp "###############"
     return if header == 'undefined' || header.blank?
     
     header = header.split(' ').last

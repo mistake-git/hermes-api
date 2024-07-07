@@ -1,6 +1,6 @@
 class Api::V1::HomesController < ApplicationController
   def interviews
-    interviews = current_user.interviews.where('interview_date_from >= ?', 1.week.from_now)
+    interviews = current_user.interviews.where('interview_time_from <= ?', 1.week.from_now)
   render json: interviews, each_serializer: InterviewSerializer
   end
 
