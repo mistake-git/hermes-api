@@ -2,7 +2,7 @@ class Api::V1::JobApplicationTodosController < ApplicationController
   before_action :set_job_application_todo, only: [:show, :update, :destroy]
 
   def index
-    job_application_todos = current_user.job_application_todos.includes(:job_application)
+    job_application_todos = current_user.job_application_todos.includes(:job_application).order(deadline: :asc)
     render json: job_application_todos, each_serializer: JobApplicationTodoSerializer
   end
 

@@ -2,7 +2,7 @@ class Api::V1::InterviewsController < ApplicationController
   before_action :set_interview, only: [:show, :update, :destroy]
 
   def index
-    interviews = current_user.interviews.includes(:job_application)
+    interviews = current_user.interviews.includes(:job_application).order(interview_time_from: :asc)
     render json: interviews, each_serializer: InterviewSerializer
   end
 
