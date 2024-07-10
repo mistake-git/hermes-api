@@ -1,5 +1,5 @@
 class InterviewSerializer < ActiveModel::Serializer
-  attributes :id, :name, :interview_time_from, :interview_time_to, :formatted_interview_time_from, :formatted_interview_time_to, :interview_type, :interview_url, :interview_address, :status, :interview_items_attributes, :user_company_attributes
+  attributes :id, :name, :interview_time_from, :interview_time_to, :formatted_interview_time_from, :formatted_interview_time_to, :interview_type, :interview_url, :interview_address, :status, :interview_items_attributes, :job_application, :user_company_attributes
 
   def interview_items_attributes
     ActiveModel::SerializableResource.new(object.interview_items, each_serializer: InterviewItemSerializer)
