@@ -25,4 +25,18 @@
 class JobApplicationTodo < ApplicationRecord
   belongs_to :user
   belongs_to :job_application
+
+  validates :name, presence: true
+  validates :status, presence: true
+  validates :job_application_id, presence: true
+
+  validate :deadline_in_future
+
+  private
+
+  def deadline_in_future
+    if deadline.present? && deadline < DateTime.now
+      errors.add(:deadline, "締切は未来の日付にしてください")
+    end
+  end
 end

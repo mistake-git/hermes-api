@@ -18,4 +18,5 @@
 #
 class InterviewItem < ApplicationRecord
   belongs_to :interview
+  validates :name, presence: true
 end

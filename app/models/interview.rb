@@ -30,4 +30,20 @@ class Interview < ApplicationRecord
   belongs_to :job_application
   has_many :interview_items, dependent: :destroy
   accepts_nested_attributes_for :interview_items
+
+  validates :interview_time_from, presence: true
+  validates :interview_time_to, presence: true
+  validates :interview_type, presence: true
+  validates :name, presence: true
+  validates :status, presence: true
+
+  validate :interview_time_consistency
+
+  private
+
+  def interview_time_consistency
+    if interview_time_from.present? && interview_time_to.present? && interview_time_from >= interview_time_to
+      errors.add(:interview_time_from, "must be before interview_time_to")
+    end
+  end
 end

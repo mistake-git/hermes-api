@@ -32,4 +32,15 @@ class JobApplication < ApplicationRecord
   has_many :interviews, dependent: :destroy
   has_many :job_application_todos, dependent: :destroy
   accepts_nested_attributes_for :user_company
+
+  validates :job_type, presence: true
+  validates :level_of_interest, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
+  validates :name, presence: true
+  validates :status, presence: true, numericality: { only_integer: true }
+  validates :user_company_id, presence: true
+  validates :user_id, presence: true
+  validates :annual_income, numericality: { only_integer: true}
+  validates :employment_type, numericality: { only_integer: true}
+  validates :reason_for_interview_link, length: { maximum: 100, allow_nil: true }
+  validates :reason_for_personal_link, length: { maximum: 100, allow_nil: true }
 end

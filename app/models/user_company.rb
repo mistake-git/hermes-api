@@ -23,6 +23,10 @@ class UserCompany < ApplicationRecord
   has_many :job_applications, dependent: :destroy
   has_many :company_links, dependent: :destroy
   accepts_nested_attributes_for :company_links, allow_destroy: true
+  
+  validates :corporate_name, presence: true, length: { maximum: 100 }
+  validates :corporate_number, presence: true, length: { maximum: 12 }, uniqueness: true
+  validates :industry_id, presence: true
 
   attr_accessor :location, :postal_code
 
